@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Wstecz.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Background.jpg" type="Texture" id=2]
+[ext_resource path="res://Scripts/Guess.gd" type="Script" id=3]
+
+[node name="New" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 542, 303 )
+texture = ExtResource( 2 )
+
+[node name="Button" parent="." instance=ExtResource( 1 )]
+margin_left = 768.0
+margin_top = 16.0
+margin_right = 1064.0
+margin_bottom = 96.0
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 256.0
+margin_top = 160.0
+margin_right = 832.0
+margin_bottom = 461.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTitle" type="Label" parent="Panel"]
+margin_left = 160.0
+margin_top = 32.0
+margin_right = 415.0
+margin_bottom = 56.0
+text = "Guess my number from 1 to 100"
+align = 1
+
+[node name="LabelResult" type="Label" parent="Panel"]
+margin_left = 208.0
+margin_top = 216.0
+margin_right = 368.0
+margin_bottom = 248.0
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+margin_left = 144.0
+margin_top = 144.0
+margin_right = 240.0
+margin_bottom = 176.0
+text = "5"
+align = 1
+
+[node name="Button" type="Button" parent="Panel"]
+margin_left = 336.0
+margin_top = 144.0
+margin_right = 432.0
+margin_bottom = 176.0
+text = "Guess"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]
